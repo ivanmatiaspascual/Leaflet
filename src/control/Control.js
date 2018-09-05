@@ -149,15 +149,30 @@ Map.include({
 		            DomUtil.create('div', l + 'control-container', this._container);
 
 		function createCorner(vSide, hSide) {
-			var className = l + vSide + ' ' + l + hSide;
+			var key;
+			var className;
+			if (vSide && hSide) {
+				key = vSide + hSide;
+				className = l + vSide + ' ' + l + hSide;
+			} else if (vSide) {
+				key = vSide;
+				className = l + vSide;
+			} else { // hSide
+				key = hSide;
+				className = l + hSide;
+			}
 
-			corners[vSide + hSide] = DomUtil.create('div', className, container);
+			corners[key] = DomUtil.create('div', className, container);
 		}
 
+		createCorner('top', null);
 		createCorner('top', 'left');
-		createCorner('top', 'right');
+		createCorner(null, 'left');
 		createCorner('bottom', 'left');
+		createCorner('bottom', null);
 		createCorner('bottom', 'right');
+		createCorner(null, 'right');
+		createCorner('top', 'right');
 	},
 
 	_clearControlPos: function () {
