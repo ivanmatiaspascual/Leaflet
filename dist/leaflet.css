@@ -146,17 +146,26 @@
 .leaflet-right .leaflet-control {
 	float: right;
 	}
-.leaflet-top .leaflet-control {
-	margin-top: 10px;
+.leaflet-control-container > div {
+	box-sizing: border-box;
 	}
-.leaflet-bottom .leaflet-control {
-	margin-bottom: 10px;
+.leaflet-control-container > :not(.leaflet-top):not(.leaflet-bottom) {
+	height: 100%;
 	}
-.leaflet-left .leaflet-control {
-	margin-left: 10px;
+.leaflet-control-container > :not(.leaflet-left):not(.leaflet-right) {
+	width: 100%;
 	}
-.leaflet-right .leaflet-control {
-	margin-right: 10px;
+.leaflet-control-container > :not(.leaflet-top) {
+	padding-bottom: 10px;
+	}
+.leaflet-control-container > :not(.leaflet-bottom) {
+	padding-top: 10px;
+	}
+.leaflet-control-container > :not(.leaflet-left) {
+	padding-right: 10px;
+	}
+.leaflet-control-container > :not(.leaflet-right) {
+	padding-left: 10px;
 	}
 
 
